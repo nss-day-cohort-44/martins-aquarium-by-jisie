@@ -56,6 +56,7 @@ const fishCollection = [
 ]
 
 export const useFish = () => {
+  //The slice method returns a new copy of the array
   return fishCollection.slice()
 }
 
