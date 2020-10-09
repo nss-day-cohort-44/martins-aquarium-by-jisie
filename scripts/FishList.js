@@ -2,7 +2,7 @@
  *  FishList which renders the entire section for the list of fishes.
  */
 import { Fish } from "./Fish.js"
-import { mostHolyFish, soldierFish } from "./FishDataProvider.js"
+import { mostHolyFish, soldierFish, nonHolyFish } from "./FishDataProvider.js"
 
 
 const buildFishContainerHTML = (arrayOfFish) => {
@@ -43,6 +43,10 @@ export const FishList = () => {
   const soldierFishes = soldierFish()
   const soldierFishHTML = buildFishContainerHTML(soldierFishes)
 
+  // Building HTML for non holy and non soldier fish
+  const regularFishes = nonHolyFish()
+  const regularFishHTML = buildFishContainerHTML(regularFishes)
+
   // debugger
 
   // Add a section, and all of the fish to the DOM
@@ -52,6 +56,7 @@ export const FishList = () => {
     <div class="fishContainer">
       ${holyFishHTML}
       ${soldierFishHTML}
+      ${regularFishHTML}
     </div>
   </section>
 `
