@@ -25,7 +25,15 @@ const fishCollection = [
     name: "Darth Vader",
     food: "Plants, crustaceans and other small insects, flakes, pellets, live and frozen foods",
     species: "Epalzeorhynchos bicolor",
-    length: 16,
+    length: 3,
+    location: "Thailand",
+    image: "https://fishfeeling.com/wp-content/uploads/2019/10/Red-Tailed-Black-Shark.jpg"
+  },
+  {
+    name: "Kylo Ren",
+    food: "Plants, crustaceans and other small insects, flakes, pellets, live and frozen foods",
+    species: "Epalzeorhynchos bicolor",
+    length: 21,
     location: "Thailand",
     image: "https://fishfeeling.com/wp-content/uploads/2019/10/Red-Tailed-Black-Shark.jpg"
   },
@@ -33,23 +41,23 @@ const fishCollection = [
     name: "Halley",
     food: "Mollusks, worms, insect larvae, crustaceans, and some fish",
     species: "Carassius auratus",
-    length: 4,
+    length: 5,
     location: "United States",
     image: "https://aquariumtidings.com/wp-content/uploads/2014/06/Depositphotos_114861180_original-1024x683.jpg"
   },
   {
-    name: "Halley Twin",
+    name: "Halley's Twin",
     food: "Mollusks, worms, insect larvae, crustaceans, and some fish",
     species: "Carassius auratus",
-    length: 4,
+    length: 75,
     location: "United States",
     image: "https://aquariumtidings.com/wp-content/uploads/2014/06/Depositphotos_114861180_original-1024x683.jpg"
   },
   {
-    name: "Halley Triplet",
+    name: "Halley's Triplet",
     food: "Mollusks, worms, insect larvae, crustaceans, and some fish",
     species: "Carassius auratus",
-    length: 4,
+    length: 250,
     location: "United States",
     image: "https://aquariumtidings.com/wp-content/uploads/2014/06/Depositphotos_114861180_original-1024x683.jpg"
   }
@@ -63,3 +71,19 @@ export const useFish = () => {
 // export const addFish = (fishObject) => {
 //   fishCollection.push(fishObject)
 // }
+
+export const mostHolyFish = () => {
+
+  const holyFish = []
+
+  for (const fish of fishCollection) {
+    // console.log(fish)
+    // console.log("What actually is the % doing? ", fish.name, fish.length % 3)
+    if(fish.length % 3 === 0) {
+      // console.log(fish)
+      holyFish.push(fish)
+    }
+  }
+  // console.log(holyFish)
+  return holyFish
+}
