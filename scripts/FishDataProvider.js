@@ -87,3 +87,18 @@ export const mostHolyFish = () => {
   // console.log(holyFish)
   return holyFish
 }
+
+export const soldierFish = () => {
+  // 5, 10, 15, 20, 25, etc... fish
+
+  const soldiers = []
+
+  for (const fish of fishCollection) {
+    if(fish.length % 5 === 0 && fish.length % 3 !== 0) {
+      soldiers.push(fish)
+    }
+  }
+  // console.log(soldiers)
+  // console.log("OG fish collection: ", fishCollection)
+  return soldiers
+}

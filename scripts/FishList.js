@@ -2,21 +2,15 @@
  *  FishList which renders the entire section for the list of fishes.
  */
 import { Fish } from "./Fish.js"
-import { useFish, mostHolyFish } from "./FishDataProvider.js"
+import { mostHolyFish, soldierFish } from "./FishDataProvider.js"
 
 
-export const FishList = () => {
-  const contentElement = document.querySelector(".contentContainer__left")
-
+const buildFishContainerHTML = (arrayOfFish) => {
   // debugger
-
-  // console.log(contentElement)
-
-  const fishes = mostHolyFish()
 
   // Generate all of the HTML for all of the fish
   let fishHTMLRepresentations = ""
-  for (const fish of fishes) {
+  for (const fish of arrayOfFish) {
 
     /*
       Invoke the Fish component function
@@ -27,16 +21,38 @@ export const FishList = () => {
 
     // debugger
     fishHTMLRepresentations += Fish(fish)
+
   }
+
+  return fishHTMLRepresentations
+}
+
+
+export const FishList = () => {
+  const contentElement = document.querySelector(".contentContainer__left")
+
+
+  // Building HTML for holy fish
+  const holyFishes = mostHolyFish()
+  console.log(holyFishes)
+
+  const holyFishHTML = buildFishContainerHTML(holyFishes)
+  console.log(holyFishHTML)
+
+  // Building HTML for soldier fish
+  const soldierFishes = soldierFish()
+  const soldierFishHTML = buildFishContainerHTML(soldierFishes)
+
   // debugger
 
   // Add a section, and all of the fish to the DOM
   contentElement.innerHTML += `
-    <section class="fishList">
-      <h3>Fish List</h3>
-      <div class="fishContainer">
-        ${fishHTMLRepresentations}
-      </div>
-    </section>
-  `
+  <section class="fishList">
+    <h3>Fish List</h3>
+    <div class="fishContainer">
+      ${holyFishHTML}
+      ${soldierFishHTML}
+    </div>
+  </section>
+`
 }
